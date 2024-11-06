@@ -22,8 +22,10 @@ db.sqlite3-journal
 # C extensions
 *.so
 fgfc
+
 /static/
-env/
+/react/node_modules/
+/react/.idea/
 # Distribution / packaging
 .Python
 build/
