@@ -1,0 +1,24 @@
+query {
+    allProjects {
+        id
+        title
+        description
+        url
+    }
+}
+
+query {
+    listContacts {
+        id
+        name
+        phoneNumber
+    }
+}
+#
+#mutation {
+#    createContact(name: "John Doe", phoneNumber: "123-456-7890") {
+#        id
+#        name
+#        phoneNumber
+#    }
+#}

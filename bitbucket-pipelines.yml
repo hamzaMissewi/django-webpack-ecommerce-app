@@ -1,0 +1,34 @@
+image: node:20-alpine
+
+pipelines:
+  branches:
+    prod:
+      - step:
+          name: Build
+          script:
+            - npm install && npm run build
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy to Firebase
+          deployment: production
+          script:
+            - pipe: atlassian/firebase-deploy:2.0.0
+              variables:
+                KEY_FILE: $GOOGLE_KEY_FILE
+                PROJECT_ID: b2b-alive-prod
+    develop:
+      - step:
+          name: Build
+          script:
+            - npm install && npm run build
+          artifacts:
+            - dist/**
+      - step:
+          name: Deploy to Firebase
+          deployment: staging
+          script:
+            - pipe: atlassian/firebase-deploy:2.0.0
+              variables:
+                KEY_FILE: $GOOGLE_KEY_FILE
+                PROJECT_ID: b2b-alive-staging

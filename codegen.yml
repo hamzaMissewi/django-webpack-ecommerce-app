@@ -1,0 +1,23 @@
+#TODO hamza with django
+overwrite: true
+schema: 'http://localhost:8080/v3/graphql'
+documents: 'graphql/*.graphql'
+generates:
+  ./src/admin/graphql/types.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      exportFragmentSpreadSubTypes: true
+      avoidOptionals:
+        field: true
+        inputValue: false
+        object: true
+        defaultValue: true
+  ./graphql/schema.graphql:
+    plugins:
+      - schema-ast
+  ./src/admin/graphql/fragmentTypes.json:
+    plugins:
+      - fragment-matcher
