@@ -22,9 +22,7 @@ db.sqlite3-journal
 # C extensions
 *.so
 fgfc
-/templates/images/
-/vite-ui/
-/ui-typescript/
+/static/
 env/
 # Distribution / packaging
 .Python
